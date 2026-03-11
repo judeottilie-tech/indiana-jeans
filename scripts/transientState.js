@@ -1,17 +1,28 @@
 const transientState = {
-  ownsBlueJeans: false,
-  socioLocationId: 0,
-};
+    ownsBlueJeans: false,
+    socioLocationId: 0
+}
 
+// Functions to modify each property of transient state
 export const setOwnsBlueJeans = (chosenOwnership) => {
-  transientState.ownsBlueJeans = chosenOwnership;
-};
+    transientState.ownsBlueJeans = chosenOwnership
+}
 
 export const setSocioLocationId = (chosenLocation) => {
-  transientState.socioLocationId = chosenLocation;
-};
+    transientState.socioLocationId = chosenLocation
+}
 
 export const saveSurveySubmission = async () => {
-  console.log("Saving survey to database...");
-  console.log(transientState);
-};
+    const postOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(transientState)
+    }
+
+    const response = await fetch("http://localhost:8088/submissions", postOptions)
+
+    const newSubmissionEvent = new CustomEvent("newSubmissionCreated")
+    document.dispatchEvent(newSubmissionEvent)
+}
