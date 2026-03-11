@@ -20,20 +20,24 @@
     }
   ],
   "socioLocations": [
-    {
+       {
       "id": 1,
-      "label": "Urban"
+      "label": "Metropolitan"
     },
     {
       "id": 2,
-      "label": "Suburban"
+      "label": "Urban"
     },
     {
       "id": 3,
-      "label": "Semi-Rural"
+      "label": "Suburban"
     },
     {
       "id": 4,
+      "label": "Semi-Rural"
+    },
+    {
+      "id": 5,
       "label": "Rural"
     }
   ]
